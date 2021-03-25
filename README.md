@@ -8,7 +8,14 @@ specifing different size, you would get dusty glyphs rendered.
 
 ## Usage
 
-See README\_j.txt (Japanese)
+See README_j.txt (Japanese)
+See README_g.txt (English) (This file is the translation of the README_j.txt file using [translate.google.com](translate.google.com).)
+See release\bdf2ttf (This is a compiled bdf2ttf for linux)
+
+## Changelog
+
+See CHANGE_j.txt (Japanese)
+See CHANGE_g.txt (English) (This file is the translation of the CHANGE_j.txt file using translate.google.com)
 
 ## License
 

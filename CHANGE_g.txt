@@ -1,0 +1,194 @@
+This file is the translation of the CHANGE_j.txt file using translate.google.com
+
+Change work memo
+                                                     Last Change: 06-Apr-2015.
+
+○ 06-Apr-2005
+  License change
+  Change contact email address
+  Convert Japanese text file from CP932 to UTF-8
+
+■ 12-Aug-2005 (2.0)
+○ 12-Aug-2005
+  You can disable style integrity checking, style-related and name auto-correction
+  Sea urchin. This allows you to forcibly set the italic flag and substitute the standard typeface as italic.
+  Become so.
+  --src / bdf.h
+  --src / bdf2ttf.cpp
+  --src / main.c
+○ 09-Oct-2003
+  --src / bdf.c
+  --src / bdf.h
+  --src / bdf2ttf.cpp
+  --src / main.c
+    Fixed an issue where italic fonts were out of size
+○ 08-Oct-2003
+  --tools / bdf2bit.pl
+  --tools / bit2bdf.pl
+    A simple tool for graphically converting and inverting BDF
+  --ucstable.d/JISX0213-1.TXT
+  --ucstable.d/JISX0213-1.WIN.TXT
+  --ucstable.d/JISX0213-2.TXT
+    Data file for JIS X 0213
+  --src / bdf.c
+    JIS X 0213 compliant
+    Indent correction
+    Added verbose mode
+  --src / bdf.h
+    Added verbose mode
+  --src / bdf2ttf.cpp
+    Disable TRACE ()
+  --src / main.c
+    Argument processing bug fix
+    Added verbose mode
+
+○ 07-Oct-2003
+  --src / main.c
+  --src / bdf2ttf.cpp
+  --src / bdf.h
+    Supports bold and italic fonts
+○ 09-Aug-2003
+  --src / bdf.c
+    Limit the usage range of pixel_size → based on size
+  --src / bdf.h
+    Introduction of has_multicell
+  --src / bdf2ttf.cpp
+    Include debug.h
+    Refactoring aspect ratio calculations
+  --src / depend.mak
+    Added debug.h to the dependency of bdf2ttf.cpp
+○ 06-Aug-2003
+  --src / bdf.c
+    Improved glyph width cell determination routine
+  --src / main.c
+    Fixed how to set Ascent
+  --compile / gcc.mak
+  --compile / Make_gcc.mak
+    Added files for compilation under GCC and CC environment
+  --README_j.txt
+    Added description about Coresize
+
+○ 05-Aug-2003
+  Version 2.0 function development completed. After that, code organization, bug fixes, and documentation
+  Creation work.
+  --src / bdf.c
+    Debugging bdf2_t
+    Added 4 new methods
+  --src / bdf.h
+    Added 4 new method declarations
+  --src / bdf2ttf.cpp
+    bdf2_t compatible
+    Remove redundant variables and functions
+  --src / bdf2ttf.h
+    Remove redundant variable and function declarations
+  --src / depend.mak
+    Dependency update
+  --src / main.c
+    Organize unnecessary functions
+  --src / rcfile.c
+    Style adjustment
+  --src / rcfile.h
+    Fixed to be able to change the maximum line length from the outside
+  --src / ucsconv.c
+    Add header comment
+  --src / ucsconv.h
+    Add header comment
+
+○ 04-Aug-2003
+  Migration to bdf2_t
+  --src / bdf2ttf.cpp
+    Define constants
+    Define MIN () macro
+    Constantize the size of the data structure
+    Change variable name with global scope
+    Create a function for building a data structure
+  --src / bdf2ttf.h
+    Change variable name with global scope
+  --src / main.c
+    Added implementation of main () for bdf2
+
+○ 03-Aug-2003
+  Preparing to move to bdf2_t
+  --src / main.c (new)
+    Extract only the entry point of the program
+  --src / bdf2ttf.h (new)
+    Declaration of variables and functions accompanying entry point extraction
+  --src / debug.h (new)
+    Declare TRACE () to use for debugging
+  --src / bdf.c
+    Show debug message when new size font is added
+  --src / bdf2ttf.cpp
+    Various work associated with extracting the entry point
+    Rename global variable bdf to s_bdf
+    Separate the embedded bitmap generation part into a function for multi-layering
+  --src / depend.mak
+    Added new file dependencies
+
+○ 29-Jul-2003
+  Follow-up survey. isspace (0xffffffef) returned non-zero. Use unsigned char *
+  Avoid the problem. isspace () is wrapped with is_whitespace (). Save your own code with #if
+  --src / rcfile.c
+    Changed to call isspace () in is_whitespace ()
+    Change read processing char * to unsigned char *
+
+○ 28-Jul-2003
+  If you write a value that starts with a non-ASCII character in the ini file, the first byte is dropped and the sentence
+  The characters had been destroyed. Caused by isspace () returning non-zero for 0xef
+  So, avoid it by defining your own is_whitespace ().
+  --src / bdf2ttf.cpp
+    Added HEX dump code for FontnameCP
+  --src / rcfile.c
+    Added is_whitespace (). Replace all isspace ().
+
+○ 11-Jul-2003
+  --src / bdf2ttf.cpp
+    An experiment to forcibly fill the Unicode Range.
+
+○ 07-Jun-2003
+  --src / bdf.c
+    BDF2 interface implementation
+
+○ 06-Jun-2003
+  --compile / Make_mvc.mak
+    Added command to distclean to delete debug files
+  --compile / depend.mak
+    Change where tags are made
+  --src / infont.c
+    Add a comment on the file summary to the top
+  --src / bdf2ttf.cpp
+    Add file summary comment to top
+    Copyright information, version number change
+    English translation of comments
+    Target conversion information display code to #ifdef USE_SHOWFONTINFO
+    src / bdf.c: Supports changing the return value of bdf_load ()
+  --src / bdf.h
+    Add file summary comment to top
+    Added BDF2 interface definition
+  --src / bdf.c
+    Add file summary comment to top
+    bdf_load (): change font load of different size to error
+    BDF2 interface implementation
+
+○ Added compile / config_default.mk
+  Added for backup of config.mk 08-Feb-2003
+
+○ Replace mkpkg
+  Replaced with the new mkpkg system used by Chalice 08-Feb-2003
+
+○ Test to create TTF for MacOSX
+  I haven't succeeded yet. When drawing full-width characters, it is sent only in half-width width, and the resulting characters overlap and draw
+  Will be done. 06-Feb-2003
+
+○ Added Makefile for MacOSX
+  make osx 03-Jan-2003
+
+○ Corrected u22be of JISX0208.WIN.TXT to u22bf
+  No characters were displayed. 10-Dec-2002
+
+○ Modified to output bloc and bdat
+  Required for Mac. 23-Sep-2002
+
+■ 23-Aug-2002 (1.0)
+○ Public
+
+ vim: set ts = 8 sts = 2 sw = 2 tw = 78 et ft = memo:
